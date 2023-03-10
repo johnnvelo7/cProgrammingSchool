@@ -1,0 +1,112 @@
+Today we learnt about pointers. In many textbooks and forums, pointers are
+mentioned to be complicated or complex and pushed to the end of the course. But
+pointers are really simple. It is their flexibility that makes the applications
+and use cases complicated. We will learn how to play with pointers and get our
+hands dirty.
+
+--------------------------------------------------------------------------------
+Exercise 1:
+
+Expected time on the problem: 10 min
+Where in memory does my variables reside? Compile and run the following small
+program a few times. Are the addresses of the variables always the same?
+
+#include <stdio.h>
+
+int a, b;
+
+void main (void);
+{
+   int i, j;
+   printf("Addresses of global variables: %p %p\n", &a, &b);
+   printf("Addresses of local variables: %p %p\n", &i, &j);
+}
+
+The makefile from Lession3 can be used as-is. No need to make a new one.
+
+--------------------------------------------------------------------------------
+Exercise 2:
+
+Expected time on the problem: 10 min
+Take the following code, what would you expect the answers would be? Why do you
+think they are the way they are?
+
+int *pInt;
+char *pChar;
+short *pShort;
+double *pDouble;
+
+printf("The size of pointers are %lu, %lu, %lu, %lu respectively \n",
+       sizeof(pInt), sizeof(pChar), sizeof(pShort), sizeof(pDouble));
+
+printf("The size of variables are %lu, %lu, %lu, %lu respectively \n",
+       sizeof(*pInt), sizeof(*pChar), sizeof(*pShort), sizeof(*pDouble));
+
+--------------------------------------------------------------------------------
+Exercise 3:
+
+Expected time on the problem: 10 min
+
+Normal usage of scanf is the following:
+int a,b;
+printf("Type two integers seperated with space\n");
+scanf("%d %d", &a, &b);
+printf("The numbers are %d, %d \n", a,b);
+
+Write a program where you use scanf to read integers from the terminal, but
+without using '&' in the scanf call. It should look more like this :
+
+scanf("%d %d", p, q);
+
+Also print the larger of the two.
+
+--------------------------------------------------------------------------------
+Exercise 4:
+
+Expected time on the problem: 40 min
+
+Write a small program that does bubble sort on an array of positive integers.
+The integers and the number of them is unknown.
+
+An example on using the program could be:
+ex3 12 3 45 67 99
+
+Then the program should print the number of numbers, then the numbers in ascending order as:
+5: 3 12 45 67 99
+
+Hint: int main(int iArgC, char *pszArgV[]), atoi();
+
+Bubble sort:
+
+Run through the elements and swap when you find a[i-1] > a[i]. Keep doing
+this until you cannot swap anymore. Swapping should be done by function call
+Swap(a,b).
+
+--------------------------------------------------------------------------------
+Exercise 5:
+
+Expected time on the problem: 10 min
+
+Write a small program that takes a series of strings as parameters and just
+prints them as:
+
+ex5 hallo on the bath you old candybar
+Number of strings: 7
+1: hallo
+2: on
+3: the
+4: bath
+5: you
+6: old
+7: candybar
+
+--------------------------------------------------------------------------------
+Exercise 6 - Important exam preperation !!!
+
+Combine the techniques from exercise 4 and 5 and print out the parameters in
+sorted order. Tip: Use strcmp() or stricmp() to compare the strings.
+Check the man pages and/or Google. Another tip: There is no need to copy
+the strings themselves from one place to another, just swap pointers...
+
+(This exercise was previously a obligatory assignment.)
+

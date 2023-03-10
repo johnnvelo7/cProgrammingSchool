@@ -1,0 +1,219 @@
+Practical Session - 3:
+
+Today we will do some basic programming exercises that will help you use these
+elements properly later.
+
+The exercises are as following :
+=============================================================================
+Exercise 1 :
+
+We will look at usage of sizeof(). Please write a code that is going to output
+the sizes of various datatypes, pointers and static arrays.
+
+Hint : int, float, double, long, signed, unsigned, int *, float *, void *,
+       int array[20]
+
+=============================================================================
+Exercise 2 :
+
+Please try to guess what the output of the following statements is going to be?
+[By hand, not by coding]
+
+-------------------
+int a,b,c,d;
+
+a = 5;
+b = a++;
+c = ++b;
+d = b++;
+
+//What do you think the values of a,b,c,d are?
+--------------------
+int x,y,z,w;
+
+x = 10;
+y = 9;
+z = 8;
+w = 7;
+
+if((x==y++) && (z==++x)){
+        w = 100;
+        printf("This is obviously true");
+}
+z = ++w+y++;
+
+//What do you think the values of x,y,z & w are?
+---------------------
+
+Now let us try to program this and verify the results of your hand calculations.
+
+===============================================================================
+Exercise 3 :
+
+Write a program that takes a number as an argument and prints if it is odd or even?
+Example :$./program 5
+         Number 5 is read and it is odd.
+         $./program all
+         Please provide a non-zero integer as argument!
+         $./program 0
+         Please provide a non-zero integer as argument!
+         $./program 6bva
+         Number 6 is read and it is even.
+
+Hint : Use argc, argv of the main
+       atoi() - can be used to convert string to int - read more at man atoi
+
+================================================================================
+Exercise 4:
+
+You are a lyric programmer and you are supposed to write a code that can output
+lyrics to "99 bottles of beer"
+
+Song:
+
+99 bottles of beer on the wall, 99 bottles of beer.
+Take one down and pass it around, 98 bottles of beer on the wall.
+
+98 bottles of beer on the wall, 98 bottles of beer.
+Take one down and pass it around, 97 bottles of beer on the wall.
+
+....
+....
+....
+
+1 bottle of beer on the wall, 1 bottle of beer.
+Take one down and pass it around, no more bottles of beer on the wall.
+
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.
+
+- alternatively -
+
+No more bottles of beer on the wall, no more bottles of beer.
+We've taken them down and passed them around; now we're drunk and passed out!
+
+=================================================================================
+Exercise 5:
+
+Convert these blocks accordingly :
+
+-------------------------------
+#include <time.h>
+#include <stdlib.h>
+
+Block 1(to switch):
+{
+   srand(time(NULL))
+   int a = rand()%20;
+   if(a == 1){
+      printf("%d is 1", a);}
+   else if(a%2 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%3 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%5 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%7 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%11 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%13 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%17 == 0){
+      printf("%d is not a prime", a);}
+   else if(a%19 == 0){
+      printf("%d is not a prime", a);}
+   else{
+      printf("%d is a prime", a);
+   }
+
+}
+
+// I want prime numbers, But this does not give primes to me. What should
+// I change to get to the last printf when a is a prime number?
+
+// YES THIS IS A "TRICK-QUESTION" ASIGNMENT - Why doesnt the above code work as it should?
+// Write the correct code that outputs if a number is a prime number or not :-)
+
+---------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+Block 2(to for & do-while):
+{
+   srand(time(NULL))
+   int a = rand()%40;
+   int sum = 0;
+   while(a>0){
+      sum = sum + a--;
+   }
+   printf("sum is %d", sum);
+}
+
+//Try changing the order of decrement and increment appropriately.
+
+=====================================================================================
+
+Exercise 6:
+
+Fibonacci series:
+a[n] = a[n-1] + a[n-2]
+a[0] = 0
+a[1] = 1
+
+write a program that takes in an integer and gives out the a[integer].
+See also https://en.wikipedia.org/wiki/Fibonacci_number
+
+Hint : Recursion
+Calculate run time of the core calculation - by using this function:
+-------------------------
+#include <sys/time.h>
+
+unsigned long GetTime() {
+  struct timeval tv;
+  gettimeofday(&tv,NULL);
+  return tv.tv_sec*(unsigned long)1000000+tv.tv_usec;
+}
+
+In the main code :
+        unsigned long timeStart, timeEnd;
+        timeStart = GetTime();
+        //Do some processing here;
+        timeEnd = GetTime();
+        printf("The elapsed time is %lu ms", (timeEnd - timeStart)/1000);
+-------------------------
+Can you make it more effective?
+
+======================================================================================
+
+Exercise 7:
+
+Quadratic solution:
+
+For an equation of the sort :
+
+ax^2 + bx + c = 0
+
+There are two floating-point solutions s1,s2. The expressions for those solutions are as
+written on the white board
+
+Write a program that takes three inputs and gives out the solutions.
+Example :
+$./solver 1 -2 1
+Solution 1 is x = 1
+Solution 2 is x = 2
+
+Try the same for these inputs:
+$./solver 1 -2 1
+$./solver 1 2 1
+$./solver 1 5 2
+$./solver 0 2 5
+$./solver 1 1 1
+
+Hint:
+Use math.h and sqrt for square root
+atof() - can be used to convert string to float - read more at man atof
+What is wrong with the later cases and how do you think we can solve it?
+
+=======================================================================================
+

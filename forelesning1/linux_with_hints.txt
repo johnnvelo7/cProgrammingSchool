@@ -1,0 +1,131 @@
+linux.txt with some hints. Look for ==> below each task.
+
+=======
+
+Good job guys!
+
+Now you have learnt how to get files over the internet with URL.
+
+Practical Session :
+
+Goals:
+- Get familiar with linux operating system
+- Get comfortable with using terminal
+- Get to use several different terminal commands
+
+Tasks:
+
+- Play with tab:
+	- Start typing command like 's' and press tab, then type 'u' and tab,
+	  then type 'd' and tab
+	- Use it to see the possible files
+	- go into /etc directory
+	- type 'cd' and space and then press tab
+- Copy and paste text using mouse in the terminal
+	- Use ctrl+shift+c to copy and ctrl+shift+v to paste
+	- Use highlighting to copy and middle click to paste
+
+- Mess around with files
+	- Look at the structure in /
+	- look at the binaries in /bin
+	- Try to locate binaries for all the commands we learnt today in the
+	  lecture
+	- Make a note of the ones you didnt find
+- man pages
+	- man man
+	- read about more commands
+	- try to play with the options with safe commands like cd, ls, grep
+
+- Copy the file you downloaded to /var
+  ==> cp linux.txt /var
+  ("cp: cannot create regular file '/var/linux.txt': Permission denied")
+
+- Try copying with sudo
+  ==> sudo cp linux.txt /var
+
+- create a folder in your home directory
+  ==> cd ~
+      mkdir leksjon1
+
+- go into the folder
+  ==> cd leksjon1
+
+- create two text files with your favorite lines in that folder
+  ==> Use gedit or other editor.
+
+- concatenate the two files and print the output to the terminal
+  ==> cat file1.txt file2.txt
+
+- concatenate and print the output to a third file
+  ==> cat file1.txt file2.txt > file3.txt
+
+- Write a small script that takes in two files, concatenates it and puts the
+  content into third file and also prints the third file to terminal:
+
+  ==> gedit skript.sh
+
+  #!/bin/sh
+  cat $1 $2 > $3
+  cat $3
+
+  chmod +x skript.sh
+
+  ./skript.sh file1.txt file2.txt file3.txt
+
+- Download a text file from internet - a book in text format
+  ==> wget http://www.aspenberg.info/kernighanritchie.txt
+
+- dump the contents of the book in terminal
+  ==> cat kernighanritchie.txt
+
+  (Dumps it all)
+
+- open it with less
+  ==> less kernighanritchie.txt
+
+  (Use space to page, arrow up, arrow down, Q to quit, same as "man")
+
+- copy the downloaded book into the directory you created.
+- search for some word - both case sensitive and insensitive - in the file
+  ==> grep "C" kernighanritchie.txt
+      grep "[Cc]" kernighanritchie.txt
+      grep -i "C" kernighanritchie.txt
+      grep -i "ritchie" kernighanritchie.txt
+
+- save all the lines with that word into another file
+  ==> grep -i "ritchie" kernighanritchie.txt > liste.txt
+
+- go to /etc and read the contents of the file 'sudoers'
+  ==> cd /etc
+      cat sudoers  ("Permission denied")
+
+- check for the permissions of that file
+  ==> ls -l sudoers
+  -r--r----- 1 root root 755 Jan 13  2017 sudoers
+  Which means r for own, r for group, none for others.
+
+- try reading it using sudo
+  ==> sudo cat sudoers (Will display the file)
+
+- make a symbolic link to your created directory in /tmp
+  ==> cd /tmp
+      ln -s /home/hka/leksjon1/ test
+
+- cd to your symbolic link
+  ==> cd test
+
+- use pwd to know what your current directory is
+  ==> pwd  ("/tmp/test")
+
+      hka@westerdals:~$ cd leksjon1/
+      hka@westerdals:~/leksjon1$
+      hka@westerdals:~/leksjon1$ ls
+      file1.txt  file3.txt    kernighanritchie.txt  skript.sh
+      file2.txt  fileres.txt  liste.txt
+      hka@westerdals:~/leksjon1$ cd /tmp/test
+      hka@westerdals:/tmp/test$ ls
+      file1.txt  file3.txt    kernighanritchie.txt  skript.sh
+      file2.txt  fileres.txt  liste.txt
+
+- try rebooting and finding your symbolic link
+  (It's gone as it was created in /tmp)
