@@ -1,0 +1,53 @@
+Lession 5 - exercises - updated 2017/09/27
+
+This exercise will help you work with arrays, strings and structs.
+Ofcourse - pointers are going to be used!
+
+Exercise 1:
+Consider the following - You have a multidimensional array of size [r][c] -
+r rows and c cols. (r,c) are provided at run-time. Example: (r=10,c=5)(r=5,c=5)
+Take input from user and store each integer into a random row. Store it
+in another row if the row is already full. Then print the whole array in a nice formatting.
+Then write a function that takes a pointer to a row and sorts the integers in place.
+
+Hints: See ex0a.c and ex0b.c for how to create a multi-dimensional array dynamically.
+       Use the BubbleSort() from previous exercises.
+
+Exercise 2:
+strlen() outputs the length of a string and is part of the string.h.
+Write a small function to output the length of a string without using strlen().
+Hint:  In C a sting is assumed to be terminated with '\0'
+
+Exercise 3:
+Take an input string and print all the occurrences of vowels[a,e,i,o,u] in the
+string in order of their occurrence.
+
+Exercise 4:
+Look at the included source file to get some leads on how to do things. Only
+basic building blocks are provided. I expect you to write the game yourselves.
+
+Now we will design a small boring game. It's a text based first person shooter game.
+
+The idea is simple.
+
+You enter a house with 100 points as life. You have several rooms and each room has
+certain number of bots that could vary between [2-8]. The bots are small creatures
+with 3x3 pixels. Each bot has a structure that looks like
+
+010  111
+101  101
+110  111
+
+They appear on the screen and you need to fight them. To fight them, you need
+to add the number of 1s and type it in the terminal. If you type it wrong the
+bot takes 5 points, if you miss the time the bot takes 10 points. Each time
+you clear a room, you enter next level - next level has lesser time per bot
+than previous level.
+
+You start with 10 seconds in the first level and start dropping one second for
+each level. If you complete the game, you win - else you get 3 scores -
+how many bots you killed and what level you died.
+
+Hint: Use struct to manage bots - see botgame.c for more info and hints.
+
+

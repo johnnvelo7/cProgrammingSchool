@@ -1,0 +1,102 @@
+Exercises for lession 6 - file I/O - 2017/10/04
+
+Today we will practice our I/O manipulation skill. Before you start,
+take a look at https://www.tutorialspoint.com/c_standard_library/stdio_h.htm
+
+Exercise 1:
+
+Read a text file full of double values and convert it into a binary file.
+Write code that converts it back to double values as a text file.
+
+Exercise 2:
+
+Download a book from project gutenburg and find the number of occurences of the following:
+
+-> two consecutive vowels
+-> a specific letter followed immediately by the same letter
+-> a pair of letters seperated by atleast 'm' and atmost 'n' characters
+
+Try this first on a small piece of text to verify the correctness.
+
+Exercise 3:
+
+Consider the following text:
+
+"Now the way that the book winds up is this: Tom and me found the money that the robbers
+hid in the cave, and it made us rich. We got six thousand dollars apiece -- all gold.
+It was an awful sight of money when it was piled up. Well, Judge Thatcher he took it
+and put it out at interest, and it fetched us a dollar a day apiece all the year
+round -- more than a body could tell what to do with. The Widow Douglas she took me
+for her son, and allowed she would sivilize me; but it was rough living in the house
+all the time, considering how dismal regular and decent the widow was in all her ways;
+and so when I couldn't stand it no longer I lit out. I got into my old rags and my
+sugar-hogshead again, and was free and satisfied. But Tom Sawyer he hunted me up
+and said he was going to start a band of robbers, and I might join if I would go
+back to the widow and be respectable. So I went back."
+
+This text can also be found as "adventures.txt".
+
+Now if I take the word : "computer"
+
+Encode it such that I only find the position of each character in the text and make sure
+that each position is atleast seperated by 10 characters from the previous position.
+
+My output will be :
+
+101 133 200 218 236 253 282 314
+C   O   M   P   U   T   E   R
+
+Now write a program that takes a word from the user as an input and encode it as following:
+
+-> All letters must be converted to positions
+-> The output must be just the positions seperated by space
+-> The positions must follow one specific rule : they must be seperated by atleast 10 characters.
+-> If it is unable to complete the word - print error message and exit
+
+Write a program that does the opposite - takes in a code and decodes it to the word.
+
+==========================================================================================
+
+Excercise 4
+
+In this zip file you will find an C implementation of the MD5-algorith.
+The code you'll find here does also include an example on how to use itIn the
+folder "Md5" you can run the makefile, then the program md5_test. Do not attempt
+(in other words, by all means, do attempt, but it isn't really necessary) to understand
+the code in md5.c. What you will need to understand is HOW to use the functions:
+
+   MD5_CTX ctx;      // Needed by the library.
+   BYTE hash[16];    // BYTE is defined in md5.h as "typedef unsigned char BYTE"
+
+   md5_init(&ctx);   // Initialize the ctx.
+
+   md5_update(&ctx, text, strlen(text));  // Add text to the hash
+
+   while (we have some data) {
+      md5_update(&ctx, data, lenght);     // This can be repeated...
+   }
+
+   md5_final(&ctx, hash); // When all data is added, finalize and get the hash
+
+At this point we have a 16 byte buffer containing the hash value.
+
+Then the exercise:
+
+Then make a small program that does the following:
+
+   md5 -add <filename>    - Calculate the MD5 checksum of the file (named filename) and
+                            add it as a binary blob at the end of the file.
+
+   md5 -test <filename>   - Calculate the MD5 checksum of the file and test if the checksum
+                            at the end of the file is the correct one.
+
+   md5 -strip <filename>  - Same as test, but strip off the checksum at the end of the file.
+
+More details:
+
+So the program should read a file into memory, calculate the MD5-checksum and either add the
+checksum to the end of the file, test if the MD5 is the same as one previously added to
+the file or, as a third alternative test, then strip off the checksum previously added to the
+file. I would start making a program that just reads a given file into memory, calculates the
+checksum and prints it in the screen. You will find an example in the Md5-folder.
+

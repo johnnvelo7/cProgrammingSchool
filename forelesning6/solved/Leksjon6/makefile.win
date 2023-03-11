@@ -1,0 +1,14 @@
+TARGET ?= ex3a
+CC = cl
+CFLAGS = -Od -Zi -TP
+# CFLAGS = -O2 -TP
+RM = del /Q
+
+$(TARGET).exe: $(TARGET).c makefile
+	$(CC) $(CFLAGS) $<
+
+clean:
+	$(RM) *.obj *.o *.sln *.pdb *.ilk *.exe
+
+help:
+	@echo make TARGET=ex1 to build ex1. Similar for ex2 etc.
