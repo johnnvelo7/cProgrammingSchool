@@ -1,0 +1,2 @@
+Test (in source code:main.c, line: 11)
+Malloc failed to allocate 100 bytes (in source code:main.c, line: 13)

@@ -1,0 +1,2 @@
+Malloc failed madfaka.
+ (in source code:ex1.c, line: 18)

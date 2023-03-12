@@ -1,0 +1,3 @@
+Test (in source code:ex1.c, line: 16)
+Malloc failed madfaka.
+ (in source code:ex1.c, line: 18)

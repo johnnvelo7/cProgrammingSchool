@@ -1,0 +1,2 @@
+main.c:8 Debug Test
+main.c:10 Error Malloc failed to allocate 100 bytes
