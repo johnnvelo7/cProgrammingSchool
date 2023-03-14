@@ -15,7 +15,3 @@ int main (int iArgC, char *apszArgV[]) {
 
 }
 
-// bengt@ostby.net
-// fag = Etisk Hacking / Cyberforsvar 
-
-
