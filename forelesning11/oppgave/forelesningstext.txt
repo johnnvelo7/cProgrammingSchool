@@ -1,0 +1,106 @@
+Memory issues
+
+Threads:
+	- main thread (hovedtråd) // thread starting the main
+	- worker thread (abreidstråd) // thread started to do a job asynchronously from the main thread
+
+"Webserver" thread pool
+
+Makefile - make clean, lib links, code to create folder, comment, security, output print (stack canaries and stuff)
+
+DO MORE NETWORKING IN C !!!!!!!!!!!!!!!!!!!!
+
+PG3401_V23_[candidate_number].pdf
+PG3401_V23_[candidate_number].zip
+\task_2\makefile
+\task_2\files
+\debugger\ - separte folder and instructions in makefile 
+
+Theory / PDF
+Task 1 = Theory kanskje 1-3 sider + 1 side per task
+
+C - is designed to make or write compiliers 
+	- programmer knows what they are doing
+	- portable in source form
+	- know what to do
+	ls
+	
+BAD CODE LEADS TO BUGS AND SECURITY ISSUES 
+
+if (x = getchar () != EOF)
+	doSomething(); // WRONG
+
+if ((x = getchar()) != EOF)
+	doSomething(); // MAYBE
+	
+x = getchar();
+if (x != EOF){
+	doSomething();
+}; // THIS IS THE BEST
+
+Switch cases - use brak all the times 
+
+DANGEROUS FUNCTIONS = BUFFER OVERFLOWS
+memcpy() and strcmp()? 
+gets() // use fgets() // sscanf
+strcpy() // use strncpy() and strncat()?
+strcat()
+vsprintf()
+strok()
+sprintf()
+scanf()
+
+
+and; array lookups
+and; missing null-terminator
+
+dangling pointers are not easy to exploit but make for bad bugs // VIKTIG Å LÆRE 
+
+Integer overflows and underflows are dangerous 
+
+Memory leaks for resources 
+same as closing files and sockets
+
+Never use "go to" in your codes
+
+////////////////////////////////////////////////////////////
+
+DEFENSIVE PROGRAMMING 
+General Quality - reducing the number of software bugs and problems 
+Make the code readable - COMMENTS COMMENTS COMMENTS and good name
+Making the software behave in predictable manner despite the unexpected input or user actions 
+
+Protect your code from incorrect data "from the outside"
+Establish secure interfaces 
+Validate everything by input data through the interfaces; type, length, content of data, structure of data 
+
+Advanced handling
+code that detects errors itself
+code that can isolate malicious data and protect itself and other code from the data
+code that can recover and repair itself 
+
+Dont wait forever in network sockets (use timeouts)
+Expect external codes to be hostile 
+
+Preconditions is a technique to ensure that the data is correct before it is used (if == )
+
+Input validation 
+
+Deny list dont hard code because of buffer overflow // NO
+Only allow list // better 
+
+
+Use hashed password in exam ? 
+Salt & md5 to make it easy 
+
+"Trusted Platform Module" 
+
+Anti BruteForce - 3 times wait 10 seconds , 6 attempt etch
+If the same IP address has tried to crack the password many times, block the IP for 30 min
+
+
+
+ 
+
+
+
