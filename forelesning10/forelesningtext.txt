@@ -1,0 +1,155 @@
+#THIS IS THE FORESLNINGSTEKST 
+
+NETWROKING in C 
+TCP/IP
+
+"Making your own application layer protocol"
+"Use TCP and connect to the IP"
+
+SOCKETS (API)
+	- Definition betwewen the application and transport layer
+	- specify the IP and the PORT 
+	
+Linux socket (POSIX, Berkley, or BSD)
+	- include <sys/socket.h>
+	- lsocket (add to CFLAGS in makefile)
+		- socket(), bind(), listen(), connect(), write(), accept()
+
+	- same as pthreads (sockets are part of POSIX)
+	- same as threads, easy to teach but difficult to learn
+	
+#Socket programming (search in google)
+
+CREATING A SERVER 
+	- include <sys/socket.h>
+	- link using lsocket flag (not always required)
+	- create a socket by calling socket()
+	- Bind to address and port by calling bind() and listen()
+	
+CREATING A CLIENT
+	- include <sys/socket.h>
+	- link using lsocket flag (not always required)
+	- create a socket by calling socket()
+	- connect to address by calling connect()
+	
+	remember to bind to PORT < 1024
+	
+SEND AND RECEIVE DATA 
+	- Server calls accept(), and the clients conenct calling
+	- call read() or write(), depends
+	
+	"A real server will send this socket FD to a new thread, and then the main thread will acall accept function again to wait for more clients to connect" // A KARAKTER I EKSAMEN
+	
+	- REMEMBER to close both sockFd that was created
+	
+	- write() - can write to file and sockets // use instead for files
+	- send() - use for sockFd instead
+	- read() - set buffer to 0, call read to that buffer -1 //zero term
+		expecting 255 , if slow connection might get 50 
+		use while loop 
+	- recv() - intended for sockets and not for files // use this 
+		dont wait flag, can also use loop
+	- peek() // not always but it can search for the buffer size 
+	
+	// HTTP uses content-length 
+	
+	// make your own protocol 
+	
+CORRECT AMOUNT OF DATA ? 
+	- Data header (2 ints, int type and int bytes)
+	
+DNS LOOKUP
+	- Dynamic lookup of host names, use getbyhostbyname() to do DNS lookup
+	- OpenSSL can encrypt, creating a TLS later under any protocol
+	
+DESIGNING A NETWORK PROTOCOL
+	- What to send from a client request
+	- Waht to get as response from server
+	- Text based protocol or binary based protocol?
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
