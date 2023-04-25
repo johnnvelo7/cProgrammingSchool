@@ -1,0 +1,7 @@
+college="Westerdals"
+pinnsvin     = "Pest og plage"
+class=2
+grade="A+"
+   students =    77
+bollocs = "Westerdals ACT"
+

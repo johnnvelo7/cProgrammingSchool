@@ -1,0 +1,23 @@
+Ways to maintain a list in memory
+	- Array and Linked lists 
+	
+Types of linked lists 
+	- Single linked list: Navigation is forward ONLY.
+	- Double Linked list: Navigation is forward and backwards. 
+	- Circular linked list: Last element is linked to the first element.
+	
+Single linked list - made up of nodes (data & address)
+
+if I want to store a list of numbers: 23, 54, 78, and 90
+let's say the addreses are: 
+23 &1000, 54&2000, 78&3000, 90&4000
+
+The linked list will look like = 23|2000(address of the next one) and so one.
+Remember the last should be "NULL" because it is not pointing to anyting.
+
+In order to access the first node, it needs a pointer = pHead.
+
+STRUCTURES //
+Self referring structure (reffering to itself) 
+	- We can combine to different data types into one type by using a struct
+	
